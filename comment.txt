@@ -1,0 +1,9 @@
+BEGIN
+    -- single-line comment /* another comment */
+    NULL;
+    /* 
+        multi-line comment 
+        -- that has another single-line comment 
+    */
+END;
+/
