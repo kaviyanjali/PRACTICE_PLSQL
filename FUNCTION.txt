@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION new_func( first_name IN VARCHAR2) RETURN VAR.CHAR2
+IS
+BEGIN
+RETURN (‘Helloo ‘|| first_name);
+END;
+/
+DECLARE
+lv_msg VARCHAR2(250);
+BEGIN
+lv_msg := new_func(‘saran07’);
+dbms_output.put_line(lv_msg);
+END;
+SELECT new_func('saran07') FROM dual ;
