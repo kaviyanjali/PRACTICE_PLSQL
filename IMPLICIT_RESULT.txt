@@ -1,0 +1,21 @@
+CREATE OR REPLACE PROCEDURE proc_return_result
+
+IS
+
+  l_var1 SYS_REFCURSOR;
+
+BEGIN
+
+  OPEN l_var1 FOR SELECT employee_id, last_name||' '||first_name
+
+  employee_name, email FROM employees;
+
+  DBMS_SQL.RETURN_RESULT(l_var1);
+
+  OPEN l_var1 FOR SELECT department_id, department_name FROM departments;
+
+  DBMS_SQL.RETURN_RESULT(l_var1);
+
+END;
+
+/
