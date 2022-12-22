@@ -1,0 +1,15 @@
+CREATE OR REPLACE PACKAGE BODY order_mgmt
+AS FUNCTION get_net_value(
+      p_order_id NUMBER)
+    RETURN NUMBER
+  IS
+    ln_net_value NUMBER 
+  BEGIN
+    SELECT SUM(unit_price * quantity)INTO ln_net_value
+    FROM
+      order_items
+    WHERE
+      order_id = p_order_id;
+      RETURN p_order_id;
+ END get_net_value;
+END order_mgmt;
