@@ -1,0 +1,11 @@
+CREATE OR REPLACE TRIGGER customers_update_credit_trg 
+    BEFORE UPDATE OF credit_limit
+    ON customers
+    FOR EACH ROW
+    WHEN (NEW.credit_limit > 0)
+BEGIN
+    IF :NEW.credit_limit >= 2 * :OLD.credit_limit THEN
+        raise_application_error(-20101,'The new credit ' || :NEW.credit_limit || 
+            ' cannot increase to more than double, the current credit ' || :OLD.credit_limit);
+    END IF;
+END;
