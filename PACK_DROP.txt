@@ -1,0 +1,8 @@
+SYNTAX:
+   
+    DROP PACKAGE [BODY] schema_name.package_name;
+
+EXAMPLE: 
+
+   DROP PACKAGE BODY order_mgmt;
+   DROP PACKAGE order_mgmt;
